@@ -1,67 +1,24 @@
-{% load static%}
+{% load static %}
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Happy Dictionary</title>
-  <!-- 新 Bootstrap4 核心 CSS 文件 -->
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-  <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-  <!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
-  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
-  <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
-  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Happy Dictionary</title>
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/base.css">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    {% block scriptsCode %}
+    {% endblock scriptsCode %}
 </head>
-<style>
-@font-face {
-  font-family: 'UDDi-B';
-  src: url({% static 'fonts/UDDigiKyokashoN-B.ttc' %}) format('truetype');/*non-IE*/
-}
-
-@font-face {
-  font-family: 'SST2';
-  src: url({% static 'fonts/SSTTypewriter-Bd.OTF' %}) format('truetype');/*non-IE*/
-}
-
-.divs .imgs{
-  display: inline-block;
-  vertical-align: middle;
-}
-.divs .infos{
-  display: inline-block;
-}
-
-/*web background*/
-.container{
-  display:table;
-  height:100%;
-}
-
-.row{
-  display: table-cell;
-  vertical-align: middle;
-}
-/* centered columns styles */
-.row-centered {
-  text-align:center;
-}
-.col-centered {
-  display:inline-block;
-  float:none;
-  text-align:left;
-  margin-right:-4px;
-}
-</style>
 <body>
-  {% block content %}
-  <div class="container-fluid">
-    <form>
-      <div class="form-group">
-        <label for="id_firstname" class='form-control'>Firstname:</label> <input class='form-control' type="text" name="firstname" required id="id_firstname">
-      </div>
-    </form>
-    <!-- <footer id="footer">Copyright &copy; 2020 ZPP Web Design</footer> -->
-  </div>
-  {% endblock content %}
+{% block content %}
+
+{% endblock content %}
 </body>
 </html>

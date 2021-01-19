@@ -1,7 +1,9 @@
-# app_name/urls.py
+# dictionary/urls.py
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
-     path('', views.get_name, name='index')
+     path('', views.show_index, name='index'),
+     path(r'translate/', views.translate),
 ]

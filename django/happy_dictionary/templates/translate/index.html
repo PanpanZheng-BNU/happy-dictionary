@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block scriptsCode %}
+
+{% endblock scriptsCode %}
+{% block content %}
+    <div class="container">
+        <div class="row row-centered">
+            <div class="col-7 col-centered">
+                <form action="/translate/" method="GET">
+                    <label for="translate_text">
+                        <img src="{{ logo }}" alt="logo"
+                             class="img rounded-circle center-block" height="250em" width="250em">
+                        <br/>
+                        <h1 class="text-center" id="slogan">嗨皮词典</h1>
+                    </label>
+                    <br/>
+                    {{ form }}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

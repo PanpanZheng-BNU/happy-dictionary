@@ -1,4 +1,6 @@
 from django import forms
 
-class TaskForm(forms.Form):
-    task_domain = forms.CharField(label="", widget=forms.TextInput(attrs={'class':'form-control','placeholder':"請在這裏輸入文字",'style':"font-family:'UDDi-B'"}), max_length=50)
+
+class TranslationForm(forms.Form):
+    q = forms.CharField(label="", widget=forms.TextInput(
+        attrs={'id': 'translate_text', 'class': 'form-control', 'placeholder': "输入您不认识的单词"}), max_length=50)
