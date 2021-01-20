@@ -1,9 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
+
+.navbar-brand,.nav-item {
+    font-family: 'ZCOOL KuaiLe', cursive;
+}
+
+.navbar-brand {
+    font-size: 1.25em;
+}
 
 #input_text {
     font-family: 'Ma Shan Zheng', cursive;
     font-size: 2em;
 }
+
+#copyright {
+    /*position: fixed;*/
+    /*background-color: rgba(43, 166, 166, 0.5);*/
+    color: #adadad;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    height: 1em;
+    vertical-align：middle;
+}
+
 
 #translate_text {
     font-family: 'Ma Shan Zheng', cursive;

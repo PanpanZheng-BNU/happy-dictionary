@@ -4,8 +4,8 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.conf import settings
 from django.urls import reverse
 
-from .forms import TranslationForm
 from urllib.parse import quote
+from .forms import TranslationForm
 from .iciba import iciba
 
 
@@ -26,10 +26,25 @@ def translate(request):
         message = iciba(quote(request.GET['q'], 'utf-8'))
 
     message2 = []
+    if type(message) != str:
+        print('{}/n{}'.format(message.getElementsByTagName('pos')[0].childNodes.length,message.getElementsByTagName('acceptation').length))
+        if message.getElementsByTagName('pos').length > 0:
+            for acceptationlist, poslist in zip(message.getElementsByTagName('acceptation'),
+                                            message.getElementsByTagName('pos')):
+                if poslist.childNodes.length > 0:
+                   for acceptation, pos in zip(acceptationlist.childNodes, poslist.childNodes):
+                        message2.append(pos.data + acceptation.data)
+                else:
+                    for acceptation in acceptationlist.childNodes:
+                        message2.append(acceptation.data)
 
-    for acceptationlist, poslist in zip(message.getElementsByTagName('acceptation'),
-                                        message.getElementsByTagName('pos')):
-        for acceptation, pos in zip(acceptationlist.childNodes, poslist.childNodes):
-            message2.append(pos.data + acceptation.data)
+
+        else:
+            for acceptationlist in message.getElementsByTagName('acceptation'):
+                for acceptation in acceptationlist.childNodes:
+                    message2.append(acceptation.data)
+                    print(acceptation.data)
+    else:
+        message2.append(message)
 
     return render(request, 'translate/result.html', {'acceptation': message2})

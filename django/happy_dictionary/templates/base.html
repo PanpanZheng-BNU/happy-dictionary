@@ -17,8 +17,27 @@
     {% endblock scriptsCode %}
 </head>
 <body>
-{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+{#    <div class="container">#}
+        <a class="navbar-brand" href="/">嗨皮词典</a>
 
+        <!-- 这个 div 加上 justify-content-end 样式即可 -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav" id="headerNav">
+                <li class="nav-item" id="navMainPage"><a class="nav-link" href="/"> 主页 </a></li>
+                <li class="nav-item" id="navAboutUs"><a class="nav-link" href="#copyright"> 关于 </a></li>
+                <li class="nav-item" id="navContactUs"><a class="nav-link" href="/essay"> 联系我们 </a></li>
+            </ul>
+        </div>
+{#    </div>#}
+</nav>
+{% block content %}
 {% endblock content %}
+<hr>
+<footer>
+    <divd="copyrightdiv">
+        <p id="copyright">Copyright &copy; 2021 ZPP</p>
+    </div>
+</footer>
 </body>
 </html>
