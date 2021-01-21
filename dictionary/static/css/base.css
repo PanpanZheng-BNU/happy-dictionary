@@ -1,8 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;900&display=swap');
 
-.navbar-brand,.nav-item {
+.navbar-brand, .nav-item {
     font-family: 'ZCOOL KuaiLe', cursive;
+}
+
+.attention_text {
+    font-family: 'Noto Serif SC', serif;
+    color: #D0104C;
 }
 
 .navbar-brand {
@@ -23,14 +31,16 @@
     right: 0;
     text-align: center;
     height: 1em;
-    vertical-align：middle;
+    vertical-align: middle;
 }
 
 
 #translate_text {
-    font-family: 'Ma Shan Zheng', cursive;
+    font-family: 'Cabin', sans-serif, 'Noto Serif SC', serif;
+    font-weight: 600;
     font-size: 1.25em;
 }
+
 
 #slogan {
     font-family: 'Ma Shan Zheng', cursive;
@@ -58,3 +68,4 @@
     text-align: center;
     margin-right: -4px;
 }
+

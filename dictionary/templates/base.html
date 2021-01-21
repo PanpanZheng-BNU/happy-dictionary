@@ -1,0 +1,31 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Dictionary</title>
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/base.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">嗨皮词典</a>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav" id="headerNav">
+            <li class="nav-item" id="navMainPage"><a class="nav-link" href="/"> 主页 </a></li>
+            <li class="nav-item" id="navAboutUs"><a class="nav-link" href="#copyright"> 关于 </a></li>
+            <li class="nav-item" id="navContactUs"><a class="nav-link" href="/"> 联系我们 </a></li>
+        </ul>
+    </div>
+</nav>
+{% block content %}
+{% endblock content %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+{% block javascript %}
+{% endblock javascript %}
+</body>
+</html>

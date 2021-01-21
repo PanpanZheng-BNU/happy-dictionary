@@ -1,10 +1,7 @@
-import os
-from django.shortcuts import render
-from django.http import HttpResponseRedirect, HttpResponse
-from django.conf import settings
-from django.urls import reverse
-
 from urllib.parse import quote
+from django.core import serializers
+from django.shortcuts import render
+
 from .forms import TranslationForm
 from .iciba import iciba
 
@@ -21,6 +18,8 @@ def show_index(request):
 
 
 def translate(request):
+    form = TranslationForm()
+    
     request.encoding = 'utf-8'
     if 'q' in request.GET and request.GET['q']:
         message = iciba(quote(request.GET['q'], 'utf-8'))
@@ -46,5 +45,7 @@ def translate(request):
                     print(acceptation.data)
     else:
         message2.append(message)
+    
 
-    return render(request, 'translate/result.html', {'acceptation': message2})
+
+    return render(request, 'translate/result.html', {'form': form, 'acceptation': message2})

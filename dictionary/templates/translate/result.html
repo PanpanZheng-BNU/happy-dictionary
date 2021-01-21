@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <br>
+    <div class="container-fluid">
+        <form id="translate-ajax">
+            {{ form }}
+        </form>
+        <hr>
+        <h1>Translate resualt</h1>
+        {% for translate_result in acceptation %}
+            <p>{{ translate_result }}</p>
+        {% endfor %}
+    </div>
+{% endblock content %}

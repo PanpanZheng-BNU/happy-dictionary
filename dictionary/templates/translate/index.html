@@ -1,7 +1,4 @@
 {% extends 'base.html' %}
-{% block scriptsCode %}
-
-{% endblock scriptsCode %}
 {% block content %}
     <div class="container">
         <div class="row row-centered">
@@ -16,7 +13,14 @@
                     <br/>
                     {{ form }}
                 </form>
+                <p class="attention_text">*仅支持英文单词输入</p>
             </div>
         </div>
     </div>
+    <hr>
+<footer>
+    <div id="copyrightdiv">
+        <p id="copyright">Copyright &copy; 2021 ZPP</p>
+    </div>
+</footer>
 {% endblock content %}
