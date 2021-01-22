@@ -1,10 +1,11 @@
 # dictionary/urls.py
 from django.urls import path
 
-from . import views
+from .views import indexView, firstTranslate, ajaxTranslate
 
 
 urlpatterns = [
-     path('', views.show_index, name='index'),
-     path('translate/', views.translate),
+     path('', indexView, name='index'),
+     path('translate', firstTranslate),
+     path('get/ajax/translate', ajaxTranslate, name="translate_ajax"),
 ]

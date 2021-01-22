@@ -2,13 +2,110 @@
 {% block content %}
     <br>
     <div class="container-fluid">
-        <form id="translate-ajax">
-            {{ form }}
-        </form>
-        <hr>
-        <h1>Translate resualt</h1>
-        {% for translate_result in acceptation %}
-            <p>{{ translate_result }}</p>
-        {% endfor %}
+        <div class="m-auto">
+            <span id="translate-ajax-div">
+                <form id="translate-ajax">
+                    {{ form }}
+                </form>
+            </span><span id="translateresult-div">
+                <table id="translateresult">
+                    <caption>Translate Result</caption>
+                    <tbody></tbody>
+                </table>
+            </span>
+        </div>
+
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="liveTranslateCheck">
+            <label class="form-check-label" for="liveTranslateCheck">实时翻译</label>
+        </div>
     </div>
 {% endblock content %}
+
+
+
+
+{% block javascript %}
+    <script>
+        function check() {
+            return $("#liveTranslateCheck").is(':checked');
+        };
+
+
+        function presentResult(getText, result) {
+            $("#translateresult tbody").empty();
+            if (result['dict'].hasOwnProperty("acceptation")) {
+                if (typeof (result['dict']['acceptation']) == "object") {
+                    for (i in result['dict']['acceptation']) {
+                        if (result['dict']['pos'][i] != null) {
+                            var c = `<td class="pos">${result['dict']['pos'][i]}</td><td class="acceptation">${result['dict']['acceptation'][i]}</td>`
+                        } else {
+                            var c = `<td class="pos"></td><td class="acceptation">${result['dict']['acceptation'][i]}</td>`
+                        }
+                        $("#translateresult tbody").append(`<tr>${c}</tr>`);
+                    }
+
+                } else {
+                    if (result['dict']['pos'] != null) {
+                        var c = `<td class="pos">${result['dict']['pos']}</td><td class="acceptation">${result['dict']['acceptation']}</td>`;
+                    } else {
+                        var c = `<td class="pos"></td><td class="acceptation">${result['dict']['acceptation']}<td>`;
+                    }
+                    $("#translateresult tbody").append(`<tr>${c}</tr>`);
+                }
+            } else {
+                $("#translateresult tbody").append(`<tr><td>抱歉，啥也没找到，请输入英文单词</td></tr>`);
+            }
+            if (getText.length == 0) {
+                $("#translateresult tbody").empty();
+            }
+        }
+
+        $(function () {
+            var instance = {{ forjson|safe }};
+            var firstTranslate = {{ getText2|safe }};
+
+            $("#translate_text2").val(firstTranslate);
+            console.log(typeof firstTranslate);
+            presentResult("first", instance);
+        })
+
+        $("#liveTranslateCheck").change(function (e) {
+            e.preventDefault();
+            if (check() == true) {
+                var translateText = $("#translate_text2").val();
+                $.ajax({
+                    type: 'GET',
+                    url: "{% url 'translate_ajax' %}",
+                    data: {"translateText": translateText},
+                    success: function (response) {
+                        var instance = JSON.parse(response["forjson"]);
+                        presentResult(translateText, instance);
+                    }
+                });
+
+                var queue = 0;
+                $("#translate_text2").on('keyup', function (event) {
+                    var check_status = check();
+                    if (check_status == true) {
+                        clearTimeout(queue);
+                        queue = setTimeout(function () {
+                            var translateText = $("#translate_text2").val();
+                            $.ajax({
+                                type: 'GET',
+                                url: "{% url 'translate_ajax' %}",
+                                data: {"translateText": translateText},
+                                success: function (response) {
+                                    var instance = JSON.parse(response["forjson"]);
+                                    presentResult(translateText, instance);
+                                }
+                            })
+                        }, 400);
+                    }
+
+                })
+            }
+        });
+
+    </script>
+{% endblock javascript %}
