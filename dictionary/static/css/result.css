@@ -59,11 +59,11 @@
 }
 
 .acceptation {
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 600;
     font-size: 1.15em;
     margin: 0 auto;
     margin-left: 1em;
-    font-family: 'Noto Serif SC', serif;
-    font-weight: 400;
 }
 
 .acceptation + .pos {

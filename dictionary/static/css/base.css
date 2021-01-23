@@ -11,6 +11,7 @@
 .attention_text {
     font-family: 'Noto Serif SC', serif;
     color: #D0104C;
+    font-weight: 900;
 }
 
 .navbar-brand {
