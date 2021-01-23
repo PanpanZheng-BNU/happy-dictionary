@@ -5,7 +5,7 @@ from django.shortcuts import render
 from .forms import TranslationForm, TranslationForm2
 from django.http import JsonResponse
 from .iciba import iciba
-
+from .get_picture import getBaidu
 
 def indexView(request):
     if request.method == 'POST':
@@ -23,13 +23,15 @@ def firstTranslate(request):
     if 'q' in request.GET and request.GET['q']:
         getText = "\"{}\"".format(request.GET['q'])
         jsResponse = iciba(quote(request.GET['q'], 'utf-8'))
-    return render(request, 'translate/result.html', {'form': form, 'forjson': jsResponse, 'getText2': getText})
+        picUrl = getBaidu(request.GET['q'])
+    return render(request, 'translate/result.html', {'form': form, 'forjson': jsResponse, 'getText2': getText, 'picUrl': picUrl})
 
 
 def ajaxTranslate(request):
     if request.is_ajax and request.method == "GET":
         translateText = request.GET.get("translateText", None)
         jsResponse2 = iciba(quote(translateText, 'utf-8'))
+        picUrl = getBaidu(translateText)
 
-        return JsonResponse({'forjson': jsResponse2}, status=200)
+        return JsonResponse({'forjson': jsResponse2, 'picUrl': picUrl}, status=200)
 

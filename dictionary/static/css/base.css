@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&display=swap');
 
 .navbar-brand, .nav-item {
     font-family: 'ZCOOL KuaiLe', cursive;
@@ -69,38 +69,4 @@
     margin-right: -4px;
 }
 
-#translateresult caption {
-    caption-side: top;
-    font-size: 1.5em;
-}
 
-.pos {
-    font-style: italic;
-}
-
-#translate-ajax-div, #translateresult-div {
-    margin-top: 1vh;
-    display: inline-block;
-    width: 45vw;
-    /*background-color: #2472e3;*/
-    vertical-align: top;
-}
-
-#translateresult-div {
-    margin-left: 2vw;
-    padding-left: 2vw;
-    background: #e2e2e2;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 10px;
-    border-color: #e2e2e2;
-    height: 30vh;
-    overflow-y:auto;
-    z-index: -1;
-}
-
-#translate_text2 {
-    resize: none;
-    height: 30vh;
-    border-radius: 10px;
-}

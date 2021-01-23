@@ -21,10 +21,4 @@ def iciba(input_text):
     translate_result = xml.dom.minidom.parseString(xml_codes)
 
 
-
-    # if translate_result.getElementsByTagName('acceptation').length > 0:
-    #     return xmltojson(xml_codes)
-    # else:
-    #     return '{"dict":{"acceptation": "抱歉，啥也没找到，请输入英文单词",}}'
-    
     return xmltojson(xml_codes)
