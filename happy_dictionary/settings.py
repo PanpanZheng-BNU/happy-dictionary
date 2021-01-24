@@ -26,7 +26,13 @@ SECRET_KEY = '*xp!f2spifxzh8xv#3odo+h^qj7y_p=svhr-h@xsx@1j6cw6g4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['test2.bnupsycher.xyz','django.bnupsycher.xyz','test.bnupsycher.xyz',"127.0.0.1"]
+ALLOWED_HOSTS = [
+    'translate.bnupsycher.xyz',
+    'test2.bnupsycher.xyz',
+    'django.bnupsycher.xyz',
+    'test.bnupsycher.xyz',
+    '127.0.0.1',
+]
 
 
 # Application definition
