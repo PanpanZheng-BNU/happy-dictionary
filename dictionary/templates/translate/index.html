@@ -18,9 +18,19 @@
         </div>
     </div>
     <hr>
-<footer>
-    <div id="copyrightdiv">
-        <p id="copyright">Copyright &copy; 2021 ZPP</p>
-    </div>
-</footer>
+    <footer>
+        <div id="copyrightdiv">
+            <p id="copyright">Copyright &copy; 2021 ZPP</p>
+        </div>
+    </footer>
 {% endblock content %}
+
+
+{% block javascript %}
+    <script>
+        $(window).on('beforeunload', function () {
+            $.cookie("input", $("#translate_text").val());
+            console.log($.cookie("input"));
+        });
+    </script>
+{% endblock javascript %}
