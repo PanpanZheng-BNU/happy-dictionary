@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .forms import TranslationForm, TranslationForm2
+from .forms import TranslationForm
 from django.http import JsonResponse
 from .iciba import iciba
 from .get_picture import getBaidu
@@ -14,6 +14,7 @@ def indexView(request):
 
     logo = 'static/images/logo.svg'
     return render(request, 'translate/index.html', {'form': form, 'logo': logo})
+
 
 def firstTranslate(request):
     form = TranslationForm()
@@ -29,4 +30,3 @@ def ajaxTranslate(request):
         picUrl = getBaidu(translateText)
 
         return JsonResponse({'forjson': jsResponse2, 'picUrl': picUrl}, status=200)
-

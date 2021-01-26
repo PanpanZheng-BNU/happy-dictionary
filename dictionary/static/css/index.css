@@ -1,0 +1,50 @@
+.container {
+    display: table;
+    height: 100%;
+}
+
+.row {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.col-centered {
+    display: inline-block;
+    float: none;
+    text-align: center;
+    margin-right: -4px;
+}
+
+#logo {
+    margin-top: 3em;
+}
+
+#slogan {
+    margin-top: 0.1em;
+    margin-bottom: 0.3em;
+    font-family: 'Ma Shan Zheng', cursive;
+}
+
+#input-text {
+    font-family: 'Cabin', sans-serif, 'Noto sans SC', serif;
+    font-weight: 500;
+    font-size: 1.25em;
+}
+
+.attention-text {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.1em;
+    color: #D0104C;
+    font-weight: 900;
+}
+
+#copyright {
+    color: #adadad;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    height: 1em;
+    vertical-align: middle;
+}

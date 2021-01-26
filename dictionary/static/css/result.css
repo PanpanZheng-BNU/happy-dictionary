@@ -1,58 +1,123 @@
-
-#translate-button-row, #translate-text-result-row {
+/*======== start navbar ========*/
+.navbar {
     position: relative;
 }
 
-#translate-text-span, #translate-result-card {
-    margin-top: 3vh;
+/*======== end navbar ========*/
+
+.container-result {
+    width: 80vw;
+    margin-left: 10vw;
+}
+
+/*======== start translate-bar ========*/
+#translate-bar {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+#input-text {
+    height: 3rem;
+    line-height: 3rem;
+    font-size: 1.25em;
+    font-family: 'Cabin', sans-serif, 'Noto Sans SC', serif;
+    font-weight: 500;
+    box-shadow: none;
+    border-radius: 0.5em 0 0 0.5em;
+}
+
+#input-text:focus {
+    border-color: #343A40;
+    border-width: 0.15rem;
+    webkit-box-shadow: none;
+    box-shadow: none;
+    margin: 0;
+}
+
+#live-translate-check {
+    position: absolute;
+    left: -9999px;
+}
+
+#live-translate-check-label {
+    border-radius: 0;
+    border-width: 0.15em;
+    border-color: #343a40;
+    color: #343a40;
+}
+
+#live-translate-check:checked + #live-translate-check-label {
+    border-color: #343A40;
+    background-color: #343A40;
+    color: white;
+
+}
+
+#translate-button, #live-translate-check-label {
+    margin: auto;
+    vertical-align: middle;
     display: inline-block;
-    width: 100%;
-    /*vertical-align: top;*/
+    width: 7em;
+    height: 3rem;
+    line-height: 2rem;
+    border-width: 0.15rem;
+    font-size: 1.05em;
+    font-family: 'Noto Sans SC', serif;
+    font-weight: 500;
+}
+
+
+#live-translate-check-label:hover, #live-translate-check:focus + #live-translate-check-label {
+    cursor: pointer;
+}
+
+
+#translate-button {
+    border-radius: 0 0.5em 0.5em 0;
+}
+
+#translate-button:focus {
+    webkit-box-shadow: none;
+    box-shadow: none;
+    margin: 0;
+}
+
+/*======== end translate-bar ========*/
+
+/*======== start translate-result ========*/
+.card-link {
+    font-size: 1.2rem;
+    font-family: 'Noto sans SC', serif;
+    font-weight: 700;
 }
 
 #translate-result-card {
-    padding-top: 0;
+    padding-top: 3vh;
 }
 
 
-#translate-result {
-    min-width: 100%;
-}
-
-#translate-result-div h1 {
-    font-size: 1.25em;
-}
-
-
-#translate_text {
-    /*resize: none;*/
-    /*border-radius: 0.5em;*/
-    font-size: 1em;
-    font-family: 'Cabin', sans-serif, 'Noto Serif SC', serif;
-    font-weight: 400;
-}
-
-#translate-result-div, #pron-div {
+#translate-result, #pron-div {
     width: 65%;
 }
 
-#translate-result-div, #picture-display-div, #pron-div {
+#picture-display-div {
+    width: 35%;
+    float: right;
+    background-color: transparent;
+}
+
+#translate-result, #picture-display-div, #pron-div {
     display: inline-block;
 }
 
-.card-link {
+
+.pron-button-label {
     font-size: 1.2em;
-    font-family: 'Cabin', sans-serif, 'Noto Serif SC', serif;
-    font-weight: 400;
+    margin: 0 auto;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 500;
 }
 
-
-#picture-display-div {
-    width: 35%;
-    /*position: absolute;*/
-    float: right;
-    background-color: white;
-}
 
 .pron-button {
     background-color: Transparent;
@@ -64,8 +129,12 @@
     color: black;
     outline: none;
     font-style: italic;
+    font-size: 1.2em;
+    margin: 0 auto;
+    line-height: 1em;
+    font-family: 'Cabin',sans-serif;
+    font-weight: 500;
 }
-
 
 .pron-button:focus {
     outline: 0;
@@ -77,222 +146,65 @@
     text-decoration: none;
 }
 
-.part {
-    font-style: italic;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-.mean {
-    font-family: 'Noto Serif SC', serif;
-    font-weight: 600;
-    font-size: 1.2rem;
-    margin: 0 auto;
-    margin-left: 1em;
-}
-
-.mean + .part {
-    margin-top: 1.3em;
-}
-
-
-#live-translate-check-label, #live-translate-check {
-    font-size: 1.2em;
-    vertical-align: sub;
-}
-
-/*#translate-button {*/
-/*    vertical-align: sub;*/
-/*}*/
-
-.card-link {
-    font-family: 'Noto Serif SC', serif;
-    font-weight: 800;
-    font-size: 1.2em;
-}
-
-
-.btn {
-    font-family: 'Noto Sans SC', sans-serif;
-    font-weight: 500;
-    font-size: 1em;
-    border-radius: 0.5rem;
-}
-
-#live-translate-check-label {
-    font-family: 'Noto Sans SC', sans-serif;
-    font-weight: 500;
-}
-
-
-.toggle.ios, .toggle-on.ios, .toggle-off.ios {
-    border-radius: 0.5rem;
-}
-
-.toggle.ios .toggle-handle {
-    border-radius: 0.5rem;
-}
-
-
-#pron-div {
-    text-align: justify;
-}
-
-.pron-button {
-    font-size: 1.2em;
-    margin: 0 auto;
-    line-height: 1em;
-    /*background-color: red;*/
-}
-
-
-.pron-button-label {
-    font-size: 1.1em;
-    margin: 0 auto;
-    font-family: 'Noto Sans SC', sans-serif;
-    font-weight: 500;
-}
-
 .pron-button, .pron-button-label {
-    margin-bottom: 2em;
+    margin-bottom: 1.2rem;
 }
 
 
 #ph_en + .pron-button-label {
-    margin-left: 2em;
+    margin-left: 2.5em;
 }
 
-.pron-div + .part {
-    margin-top: 10em;
+.part {
+    font-style: italic;
+    font-size: 1.3rem;
+    font-family: 'Cabin', sans-serif;
+    font-weight: 900;
+}
+
+dd {
+    margin: 0 auto;
+    margin-left: 2em;
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 500;
+    font-size: 1.15rem;
+}
+
+.mean {
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 500;
+    font-size: 1.15rem;
+    height: 100%;
+    line-height: 1.5rem;
+}
+
+.mean + .part {
+    margin-top: 0.8em;
 }
 
 
 .exchange-td {
-    font-size: 1.1em;
-    font-family: 'Cabin', sans-serif, 'Noto Serif SC', serif;
-    font-weight: 500;
-}
-
-.exchange-th {
-    font-family: 'Noto Sans SC', sans-serif;
-    font-weight: 600;
-}
-
-
-/*=======*/
-
-#live-translate-check {
-    position: absolute;
-    left: -9999px;
-}
-
-#toggle1-label {
-    border-radius: 0;
-    border-width: 0.15em;
-    border-color: #343a40;
-    color: #343a40;
-}
-
-#live-translate-check:checked + #toggle1-label {
-    border-color: #343A40;
-    background-color: #343A40;
-    color: white;
-}
-
-#translate-button, #toggle1-label {
-    margin: auto;
-    /*margin-top: 2em;*/
-    vertical-align: middle;
-    display: inline-block;
-    width: 7em;
-    height: 3rem;
-    line-height: 2rem;
-    border-width: 0.15rem;
-
-
-}
-
-
-#toggle1-label:hover, #live-translate-check:focus + #toggle1-label {
-    /*box-shadow: 0 0 20px rgba(0, 0, 0, .6);*/
-    cursor: pointer;
-}
-
-
-#translate-button {
-    border-radius: 0 0.5em 0.5em 0;
-}
-
-@-webkit-keyframes fade {
-    0% {
-        opacity: 0; /*初始状态 透明度为0*/
-    }
-    50% {
-        opacity: 1; /*中间状态 透明度为0*/
-    }
-    80% {
-        opacity: 1; /*中间状态 透明度为0*/
-    }
-    100% {
-        opacity: 0; /*结尾状态 透明度为1*/
-    }
-}
-
-.Flex-fadeIn {
-    -webkit-animation-name: fade; /*动画名称*/
-    -webkit-animation-duration: 2s; /*动画持续时间*/
-    -webkit-animation-iteration-count: 1; /*动画次数 infinite 为无限 否则就是具体次数*/
-    -webkit-animation-delay: 0s; /*延迟时间*/
-    -webkit-animation-direction: alternate;
-    -webkit-animation-fill-mode: both;
-}
-
-#display-live-status {
-    text-align: center;
-    font-size: 3rem;
-}
-
-.form-control {
-    height: 3rem;
-    line-height: 3rem;
-}
-
-.container {
-    width: 80vw;
-}
-
-
-.form-control:focus {
-    border-color: #343A40;
-    border-width: 0.15rem;
-    border-right: 0 auto;
-    webkit-box-shadow: none;
-    box-shadow: none;
-    margin: 0;
-}
-
-
-#bar {
-    margin-top: 2em;
-    margin-bottom: 2em;
-}
-
-dd {
-    font-style: italic;
-    margin-left: 2em;
+    font-size: 1.2em;
     font-family: 'Cabin', sans-serif, 'Noto Serif SC', serif;
     font-weight: 400;
 }
 
-dt {
-
-    font-family: 'Cabin', sans-serif, 'Noto Serif SC', serif;
+.exchange-th {
+    font-size: 1.1rem;
+    font-family: 'Noto Sans SC', sans-serif;
     font-weight: 700;
 }
 
+dt {
+    font-family: 'Cabin', sans-serif;
+    font-weight: 500;
+    font-size: 1.3rem;
+}
 
-.container2{
-    width: 80vw;
-    margin-left: 10vw;
-    margin-right: 10vw;
+.trans{
+    font-style: italic;
+}
+
+.trans + .orig {
+    margin-top: 0.8em;
 }

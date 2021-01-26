@@ -1,17 +1,12 @@
-__author__ = 'Katie Lee'
 import urllib.request
 import json
 import xml.dom.minidom
 import xmltodict
 from urllib.parse import quote
 
-
-
-
 def iciba(input_text):
     input_text = quote(input_text, 'utf-8')
 
-    # prepare the url_pre and post Strings
     url_preString = "http://dict-co.iciba.com/api/dictionary.php?w="
     url_postString_json = "&key=BACC496E7F9A1E527D004E6D4F563417&type=json"
     url_postString_xml = "&key=BACC496E7F9A1E527D004E6D4F563417"
@@ -27,6 +22,3 @@ def iciba(input_text):
     translate_result = json.dumps({"xml": xml_result_to_dict, "json": json_result_to_dict})
 
     return translate_result
-
-
-print(iciba("apple"))

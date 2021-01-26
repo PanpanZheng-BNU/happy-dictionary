@@ -3,18 +3,16 @@
     <link rel="stylesheet" href="/static/css/result.css">
 {% endblock css %}
 {% block content %}
-
-    <div class="container2">
-        <div class="input-group" id="bar">
+    <div class="container-result">
+        <div class="input-group" id="translate-bar">
             {{ form }}
             <div class="input-group-append">
-            <span style="height:100%">  <input id="live-translate-check" type="checkbox" checked>
-                <label for="live-translate-check" class="btn " id="toggle1-label"><a id="animate-id">自动翻译</a></label><button
-                        id="translate-button"
-                        type="button"
-                        class="btn btn-dark"><a>翻译</a></button></span>
+                <span id="translate-bar-span">
+                    <input id="live-translate-check" type="checkbox">
+                    <label for="live-translate-check" class="btn " id="live-translate-check-label"><a id="animate-id">自动翻译</a>
+                    </label><button id="translate-button" type="button" class="btn btn-dark"><a>翻译</a></button>
+                </span>
             </div>
-
         </div>
 
         <div id="accordion">
@@ -28,7 +26,9 @@
                     <div class="card-body" id="translate-result-card">
                         <div id="pron-div"></div>
                         <div id="picture-display-div"></div>
-                        <div id="translate-result"></div>
+                        <div id="translate-result">
+                            <dl></dl>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -55,7 +55,6 @@
                 <div id="word-example" class="collapse" data-parent="#accordion">
                     <div class="card-body" id="example">
                         <dl>
-
                         </dl>
                     </div>
                 </div>
@@ -68,231 +67,5 @@
 
 
 {% block javascript %}
-    <script>
-
-        $("#ph_en").click(function () {
-            console.log("hhh")
-        });
-        $(window).on('beforeunload', function () {
-            $.cookie("input", $("#translate_text").val());
-            $.cookie("checkbox", $("#live-translate-check").is(':checked'));
-        });
-
-
-        $("#translate-button").click(function (e) {
-            var translateText = $("#translate_text").val();
-            $.ajax({
-                type: 'GET',
-                url: "{% url 'translate_ajax' %}",
-                data: {"translateText": translateText},
-                success: function (response) {
-                    var instance = JSON.parse(response["forjson"]);
-                    var picUrl = JSON.parse(response["picUrl"]);
-                    presentResult(translateText, instance, picUrl);
-                }
-            });
-        })
-
-        function check() {
-            return $("#live-translate-check").is(':checked');
-        };
-
-
-        function presentResult(getText, result, urlRes) {
-            $("#translate-result").empty();
-            $("#picture-display-div").empty();
-            $("#pron-div").empty();
-            $("#exchange table").empty();
-            $("#example dl").empty();
-            let resultJson = result['json'];
-            let resultXml = result['xml'];
-
-            if (getText.length != 0) {
-                if (resultJson.hasOwnProperty("word_name")) {
-                    for (parts of resultJson['symbols'][0]['parts']) {
-                        $("#translate-result").append(`<h2 class="part">${parts['part']}</h2>`);
-                        for (mean of parts['means']) {
-                            $("#translate-result").append(`<p class="mean">${mean}</p>`);
-                        }
-                    }
-                    $("#picture-display-div").append(
-                        `<img id="picture" src=${urlRes['url'][0]} width="100%"/>`
-                    )
-
-                    if (resultJson['symbols'][0]['ph_en']) {
-                        $("#pron-div").append(
-                            `<label class="pron-button-label" for="ph_en" style="vertical-align:sub">英音</label>
-                         <button class="pron-button btn btn-link" id="ph_en" style="vertical-align:sub">${resultJson['symbols'][0]['ph_en']}</button>`
-                        )
-                    }
-
-                    if (resultJson['symbols'][0]['ph_am']) {
-                        $("#pron-div").append(
-                            `<label class="pron-button-label" for="ph_am" style="vertical-align:sub">美音</label>
-                         <button class="pron-button btn btn-link" id="ph_am" style="vertical-align:sub">${resultJson['symbols'][0]['ph_am']}</button>`
-                        )
-                    }
-
-                    var phEnAudio = document.createElement('audio');
-                    var phAmAudio = document.createElement('audio');
-
-                    $("#ph_en").click(function () {
-                            phEnAudio.setAttribute('src', resultJson['symbols'][0]['ph_en_mp3']);
-                            phEnAudio.pause();
-                            phEnAudio.currentTime = 0;
-                            phEnAudio.play();
-                        }
-                    );
-
-                    $("#ph_am").click(function () {
-                            phAmAudio.setAttribute('src', resultJson['symbols'][0]['ph_am_mp3']);
-                            phAmAudio.pause();
-                            phAmAudio.currentTime = 0;
-                            phAmAudio.play();
-                        }
-                    );
-
-                    var exchangeDict = {
-                        "word_pl": "复数",
-                        "word_third": "第三人称单数",
-                        "word_past": "过去式",
-                        "word_done": "过去分词",
-                        "word_ing": "ing形式",
-                        "word_er": "比较级",
-                        "word_est": "最高级",
-                    }
-
-                    for (let exchange of Object.keys(resultJson['exchange'])) {
-                        if (resultJson['exchange'][exchange]) {
-                            let exchangeResultTd = "";
-                            for (exchangeResult of resultJson['exchange'][exchange]) {
-                                exchangeResult += "; ";
-                                exchangeResultTd += exchangeResult;
-                            }
-
-                            $("#exchange table").append(`<tr><th scope="row" class="exchange-th">${exchangeDict[exchange]}</th><td class="exchange-td">${exchangeResultTd}</td></tr>`);
-                        }
-                    }
-
-                    if (resultXml['dict'].hasOwnProperty('sent')) {
-                        for (sent of resultXml['dict']['sent']) {
-                            $("#example dl").append(`<dt>${sent['orig']}</dt>`);
-                            $("#example dl").append(`<dd>${sent['trans']}</dd>`);
-                        }
-                    }
-
-                } else {
-                    $("#translate-result").append(`<tr><td>抱歉，啥也没找到，请输入的英文单词正确</td></tr>`);
-                    $("#exchange table").append(`<tr><td>抱歉，啥也没找到，请输入的英文单词正确</td></tr>`);
-                    $("#example dl").append(`<tr><td>抱歉，啥也没找到，请输入的英文单词正确<tr><td>`);
-                }
-            }
-        }
-
-        $(function () {
-                console.log($.cookie("checkbox"))
-                if ($.cookie("checkbox") == "false") {
-                    $('#live-translate-check').attr("checked", false);
-                }
-
-                if ($.cookie("input")) {
-                    $("#translate_text").val($.cookie("input"));
-                    var translateText = $("#translate_text").val();
-                    $.ajax({
-                        type: 'GET',
-                        url: "{% url 'translate_ajax' %}",
-                        data: {"translateText": translateText},
-                        success: function (response) {
-                            var instance = JSON.parse(response["forjson"]);
-                            var picUrl = JSON.parse(response["picUrl"]);
-                            presentResult(translateText, instance, picUrl);
-                        }
-                    });
-                }
-            }
-        );
-
-
-        var queue = 0;
-        $("#translate_text").on('keyup', function (event) {
-            var check_status = check();
-            if (check_status == true) {
-                clearTimeout(queue);
-                queue = setTimeout(function () {
-                    var translateText = $("#translate_text").val();
-                    $.ajax({
-                        type: 'GET',
-                        url: "{% url 'translate_ajax' %}",
-                        data: {"translateText": translateText},
-                        success: function (response) {
-                            var instance = JSON.parse(response["forjson"]);
-                            var picUrl = JSON.parse(response["picUrl"])
-                            presentResult(translateText, instance, picUrl);
-                        }
-                    })
-                }, 400);
-            }
-        })
-
-
-        $("#live-translate-check").change(function (e) {
-            e.preventDefault();
-            if (check() == true) {
-                var translateText = $("#translate_text").val();
-                $.ajax({
-                    type: 'GET',
-                    url: "{% url 'translate_ajax' %}",
-                    data: {"translateText": translateText},
-                    success: function (response) {
-                        var instance = JSON.parse(response["forjson"]);
-                        var picUrl = JSON.parse(response["picUrl"]);
-                        presentResult(translateText, instance, picUrl);
-                    }
-                });
-                $("#animate-id").finish()
-                    .empty()
-                    .append("开")
-                    .css("opacity", "0")
-
-
-                    .animate({
-                        opacity: '1'
-                    }, 1000)
-
-                    .animate({
-                        opacity: '0'
-                    }, 500, function () {
-                        $(this).empty();
-                        $(this).append("自动翻译");
-                    })
-
-
-                    .animate({
-                        opacity: '1'
-                    }, 500)
-            } else {
-                $("#animate-id").finish()
-                    .empty()
-                    .append("关")
-                    .css("opacity", "0")
-
-
-                    .animate({
-                        opacity: '1'
-                    }, 1000)
-
-                    .animate({
-                        opacity: '0'
-                    }, 500, function () {
-                        $(this).empty();
-                        $(this).append("自动翻译");
-                    })
-
-
-                    .animate({
-                        opacity: '1'
-                    }, 500)
-            }
-        });
-    </script>
+    <script src="/static/js/function.js"></script>
 {% endblock javascript %}

@@ -1,78 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100;300;400;500;700;900&display=swap');
+
+.navbar {
+    position: absolute;
+    width: 100%;
+}
 
 .navbar-brand, .nav-item {
     font-family: 'ZCOOL KuaiLe', cursive;
-    font-size: 1.2rem;
-}
-
-.attention_text {
-    font-family: 'Noto Serif SC', serif;
-    color: #D0104C;
-    font-weight: 900;
+    /*font-family: 'Zhi Mang Xing', cursive;*/
+    font-size: 1rem;
 }
 
 .navbar-brand {
-    font-size: 1.25em;
+    font-size: 1.2rem;
 }
 
-#input_text {
-    font-family: 'Ma Shan Zheng', cursive;
-    font-size: 2em;
+#navbar-logo {
+    width: 1.9em;
+    margin-right: 0.8em;
+    margin-top: 0;
 }
-
-#copyright {
-    /*position: fixed;*/
-    /*background-color: rgba(43, 166, 166, 0.5);*/
-    color: #adadad;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    height: 1em;
-    vertical-align: middle;
-}
-
-
-#translate_text {
-    font-family: 'Cabin', sans-serif, 'Noto Serif SC', serif;
-    font-weight: 600;
-    font-size: 1.25em;
-}
-
-
-#slogan {
-    margin-top: 0.1em;
-    margin-bottom: 0.3em;
-    font-family: 'Ma Shan Zheng', cursive;
-}
-
-/*web background*/
-.container {
-    display: table;
-    height: 100%;
-}
-
-.row {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-/* centered columns styles */
-.row-centered {
-    text-align: center;
-}
-
-.col-centered {
-    display: inline-block;
-    float: none;
-    text-align: center;
-    margin-right: -4px;
-}
-
-
-

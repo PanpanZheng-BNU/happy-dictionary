@@ -1,13 +1,8 @@
-# -*- coding: UTF-8 -*-
 import json, re
 import urllib.request as urllib2
 import requests
 from time import strftime, localtime,sleep
 
-
-class A:
-    def __init__(self,url):
-        self.url = url
 
 def getBaidu(keyword):
     keyword = urllib2.quote(keyword)
@@ -32,8 +27,7 @@ def getBaidu(keyword):
         print (e.reason)
 
 
-
-
+# Bing图片, 暂未启用
 def getBing(keyword):
     keyword = urllib2.quote(keyword)
     url = "https://cn.bing.com/images/async?q={}&first=1&count=35&relp=35&tsc=ImageHoverTitle&datsrc=I&layout=RowBased&mmasync=1".format(keyword)
