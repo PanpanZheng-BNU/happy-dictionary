@@ -188,6 +188,7 @@ $(function () {
 
     if ($.cookie("input")) {
         $("#input-text").val($.cookie("input"));
+        showWait();
         let translateText = $("#input-text").val();
         ajaxTranslate(translateText);
     }
