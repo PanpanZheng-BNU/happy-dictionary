@@ -8,5 +8,5 @@ urlpatterns = [
      path('', indexView, name='index'),
      path('translate', firstTranslate),
      path('get/ajax/translate', ajaxTranslate, name="translate_ajax"),
-     url(r'^favicon.ico', RedirectView.as_view(url="images/favicon.ico"))
+     url(r'^favicon.ico', RedirectView.as_view(url="/static/images/favicon.ico"))
 ]
