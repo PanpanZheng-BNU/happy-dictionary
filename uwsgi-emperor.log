@@ -1,0 +1,111 @@
+*** Starting uWSGI 2.0.19.1 (64bit) on [Wed Jan 27 11:04:53 2021] ***
+compiled with version: 8.3.0 on 27 January 2021 09:02:38
+os: Linux-4.19.0-8-cloud-amd64 #1 SMP Debian 4.19.98-1 (2020-01-26)
+nodename: Tmh356259589703
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /home
+detected binary path: /home/env/HD/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/Source_HD
+your processes number limit is 3894
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/Source_HD/HD.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.8.7 (default, Jan 27 2021, 08:50:00)  [GCC 8.3.0]
+PEP 405 virtualenv detected: /home/env/HD
+Set PythonHome to /home/env/HD
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x556b6c61f190
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 802120 bytes (783 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x556b6c61f190 pid: 1356 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1356)
+spawned uWSGI worker 1 (pid: 1358, cores: 1)
+spawned uWSGI worker 2 (pid: 1359, cores: 1)
+spawned uWSGI worker 3 (pid: 1360, cores: 1)
+spawned uWSGI worker 4 (pid: 1361, cores: 1)
+spawned uWSGI worker 5 (pid: 1362, cores: 1)
+spawned uWSGI worker 6 (pid: 1363, cores: 1)
+spawned uWSGI worker 7 (pid: 1364, cores: 1)
+spawned uWSGI worker 8 (pid: 1365, cores: 1)
+spawned uWSGI worker 9 (pid: 1366, cores: 1)
+spawned uWSGI worker 10 (pid: 1367, cores: 1)
+[pid: 1367|app: 0|req: 1/1] 103.131.189.166 () {42 vars in 839 bytes} [Wed Jan 27 11:05:07 2021] GET / => generated 2954 bytes in 5348 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 0)
+Wed Jan 27 11:05:24 2021 - uWSGI worker 10 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Wed Jan 27 11:05:24 2021 - uWSGI worker 7 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Wed Jan 27 11:05:24 2021 - uWSGI worker 9 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Wed Jan 27 11:05:24 2021 - uWSGI worker 6 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Wed Jan 27 11:05:24 2021 - uWSGI worker 8 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Wed Jan 27 11:05:24 2021 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Wed Jan 27 11:05:24 2021 - uWSGI worker 5 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Wed Jan 27 11:05:24 2021 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Wed Jan 27 11:05:24 2021 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Wed Jan 27 11:05:24 2021 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+*** Starting uWSGI 2.0.19.1 (64bit) on [Wed Jan 27 11:12:04 2021] ***
+compiled with version: 8.3.0 on 27 January 2021 09:02:38
+os: Linux-4.19.0-8-cloud-amd64 #1 SMP Debian 4.19.98-1 (2020-01-26)
+nodename: Tmh356259589703
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /home/env/HD/vassals
+detected binary path: /usr/local/bin/uwsgi
+chdir() to /home/Source_HD
+your processes number limit is 3894
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/Source_HD/HD.sock fd 3
+Python version: 3.8.7 (default, Jan 27 2021, 08:50:00)  [GCC 8.3.0]
+PEP 405 virtualenv detected: /home/env/HD
+Set PythonHome to /home/env/HD
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55b389ebbda0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 802120 bytes (783 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55b389ebbda0 pid: 1470 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1470)
+spawned uWSGI worker 1 (pid: 1472, cores: 1)
+spawned uWSGI worker 2 (pid: 1473, cores: 1)
+spawned uWSGI worker 3 (pid: 1474, cores: 1)
+spawned uWSGI worker 4 (pid: 1475, cores: 1)
+spawned uWSGI worker 5 (pid: 1476, cores: 1)
+spawned uWSGI worker 6 (pid: 1477, cores: 1)
+spawned uWSGI worker 7 (pid: 1478, cores: 1)
+spawned uWSGI worker 8 (pid: 1479, cores: 1)
+spawned uWSGI worker 9 (pid: 1480, cores: 1)
+spawned uWSGI worker 10 (pid: 1481, cores: 1)
+SIGINT/SIGQUIT received...killing workers...
+Wed Jan 27 11:12:08 2021 - received message 0 from emperor
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+worker 6 buried after 1 seconds
+worker 7 buried after 1 seconds
+worker 8 buried after 1 seconds
+worker 9 buried after 1 seconds
+worker 10 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: unix socket /home/Source_HD/HD.sock removed.

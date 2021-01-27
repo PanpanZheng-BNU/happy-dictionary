@@ -2,7 +2,16 @@
 
 {% block css %}
     <link rel="stylesheet" href="/static/css/index.css">
-    <link href='http://cdn.repository.webfont.com/webfonts/nomal/143033/46158/601125b8f629d8f6e8b76370.css' rel='stylesheet' type='text/css' />
+    <script>
+    (function(d) {
+      var config = {
+        kitId: 'qwt0aru',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+   </script>
 {% endblock css %}
 
 {% block content %}
@@ -15,7 +24,7 @@
                         <img src="{{ logo }}" alt="logo" id="logo"
                              class="img rounded-circle center-block" height="250em" width="250em">
                         <br/>
-                        <h1 class="text-center css25e8249f4c22eb9" id="slogan">嗨皮词典</h1>
+                        <h1 class="text-center" id="slogan">嗨皮词典</h1>
                     </label>
                     <br/>
                     {{ form }}

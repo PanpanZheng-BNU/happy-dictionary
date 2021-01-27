@@ -24,6 +24,9 @@
     margin-top: 0.1em;
     margin-bottom: 0.5em;
     font-size: 2.25em;
+    font-family: source-han-sans-simplified-c,sans-serif;
+    font-weight: 700;
+    font-style: normal;
 }
 
 #input-text {
