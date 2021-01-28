@@ -91,6 +91,14 @@
     font-weight: 700;
 }
 
+#attention-text {
+  font-size: 1.2rem;
+  font-family: 'Noto sans SC', serif;
+  font-weight: 700;
+  color:#D91F68;
+  margin-left:2em;
+}
+
 #translate-result-card {
     padding-top: 3vh;
 }

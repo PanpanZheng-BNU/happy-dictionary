@@ -50,6 +50,26 @@ function offAnimation() {
         }, 500)
 }
 
+function attentionAnimation() {
+  $("#attention-text").finish()
+  .empty()
+  .append("点击音标可以发音哟")
+  .css("opacity", "0")
+
+  .animate({
+      opacity: '1'
+  }, 1000)
+
+
+  .animate({
+      opacity: '1'
+  }, 5000)
+
+  .animate({
+      opacity: '0'
+  }, 500)
+}
+
 function showWait() {
     $("#translate-result dl").empty();
     $("#picture-display-div").empty();
@@ -191,6 +211,10 @@ $(function () {
         $("#input-text").val($.cookie("input"));
         let translateText = $("#input-text").val();
         ajaxTranslate(translateText);
+        if ($.cookie("firstload") != "not"){
+          attentionAnimation();
+        }
+
     }
 
 
@@ -235,4 +259,5 @@ $(function () {
 $(window).on('beforeunload', function () {
     $.cookie("input", $("#input-text").val());
     $.cookie("checkbox", $("#live-translate-check").is(':checked'));
+    $.cookie("firstload", "not");
 });
